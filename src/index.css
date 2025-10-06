@@ -1,0 +1,117 @@
+/* =========================================================
+   🔹 FONTES PRINCIPAIS — Poppins & Space Grotesk
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   🎨 VARIÁVEIS DE COR — Paleta oficial Loomis
+   ========================================================= */
+:root {
+  --loomis-blue: #2563eb;
+  --loomis-light-blue: #60a5fa;
+  --loomis-navy: #0f172a;
+  --loomis-bg: #f9fafb;
+}
+
+/* =========================================================
+   🧩 CONFIGURAÇÕES GERAIS — Responsividade e base
+   ========================================================= */
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: var(--loomis-bg);
+}
+
+/* Evita que o zoom quebre layouts ou grids */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* =========================================================
+   🧠 CORPO — Tipografia e layout base
+   ========================================================= */
+body {
+  @apply bg-[var(--loomis-bg)] text-[var(--loomis-navy)] font-grotesk antialiased;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   ✨ TÍTULOS (Heading) — Poppins Bold e adaptável
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-poppins font-extrabold tracking-tight leading-tight;
+  color: var(--loomis-navy);
+}
+
+/* Tamanhos fluidos (adaptam ao zoom/tela) */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+/* =========================================================
+   📝 TEXTOS, LINKS E BOTÕES — Space Grotesk
+   ========================================================= */
+p, a, span, li, button {
+  @apply font-grotesk;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+}
+
+/* Links e botões interativos */
+button, .btn {
+  @apply transition-all duration-300 ease-in-out;
+  cursor: pointer;
+  will-change: transform, box-shadow;
+}
+
+/* =========================================================
+   💫 ANIMAÇÕES — Brilho suave e entrada
+   ========================================================= */
+
+/* Glow suave (usado em cards e planos) */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.05); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 5s ease-in-out infinite;
+}
+
+/* Fade suave (entrada ao scrollar) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fade-up 1.2s ease forwards;
+}
+
+/* =========================================================
+   🧭 UTILITÁRIOS — Estilo adicional
+   ========================================================= */
+.shadow-premium {
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.15);
+}
+.border-glow {
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
