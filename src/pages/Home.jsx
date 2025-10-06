@@ -300,7 +300,7 @@ export default function Home() {
             variants={fadeUp}
           >
             <h1 className="text-5xl md:text-6xl font-extrabold text-blue-900 mb-8 text-center font-poppins drop-shadow-sm">
-              Plataforma Loomis 🚀
+              Plataforma Loomis 
             </h1>
 
             <p className="text-lg md:text-xl text-blue-900/90 text-center mb-10 max-w-4xl mx-auto leading-relaxed font-light">
