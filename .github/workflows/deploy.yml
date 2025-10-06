@@ -2,29 +2,32 @@ name: Deploy Loomis Site
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar código
+      - name: 🔹 Checkout repositório
         uses: actions/checkout@v3
 
-      - name: Instalar Node
+      - name: 🔹 Instalar Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Instalar dependências
+      - name: 🔹 Instalar dependências
         run: npm install
 
-      - name: Buildar site
-        run: npm run build
+      - name: 🔹 Build do projeto
+        run: |
+          chmod +x node_modules/.bin/vite
+          npm run build
 
-      - name: Deploy no GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 🔹 Deploy no GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          branch: gh-pages
+          folder: dist
